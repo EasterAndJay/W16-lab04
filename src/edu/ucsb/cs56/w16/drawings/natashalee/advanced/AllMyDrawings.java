@@ -18,7 +18,7 @@ import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
 
 public class AllMyDrawings
 {
-    /** Draw a picture with a few houses 
+    /** Draw a picture with a few candies
      */
     
     public static void drawPicture1(Graphics2D g2) {
@@ -50,7 +50,7 @@ public class AllMyDrawings
 	g2.setColor(new Color(0x002FA7)); 
 	g2.draw(c2);
 
-	// Draw two candies with stick
+	// Draw two candies with stick(lollipops)
 	
 	CandyWithStick lp1 = new CandyWithStick(50,180,60);
 	CandyWithStick lp2 = new CandyWithStick(500,40,100);
@@ -131,8 +131,7 @@ public class AllMyDrawings
 		g2.drawString("A Candies and Lollipops by Natasha Lee", 20,20);
 	}
 	
-    /** Draw a different picture with a few houses and coffee cups
-     */
+	
     
     public static void drawPicture3(Graphics2D g2) {
 	

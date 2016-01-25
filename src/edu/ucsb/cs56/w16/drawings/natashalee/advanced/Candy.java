@@ -23,7 +23,7 @@ public class Candy extends GeneralPathWrapper implements Shape
 
 	     @param x x coord of lower left of candy
 	     @param y y coord of lower left of candy
-	     @param radius size of candy
+	     @param diam diameter gives size of candy
 	 */
 	public Candy(double x, double y, double diam)
 	{
