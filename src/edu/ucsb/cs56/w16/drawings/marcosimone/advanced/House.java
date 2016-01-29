@@ -13,7 +13,7 @@ import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
    the Shape interface, and so can be drawn, as well as
    rotated, scaled, etc.
       
-   @author Phill Conrad 
+   @author Marco Simone 
    @version for CS56, W16, UCSB
    
 */

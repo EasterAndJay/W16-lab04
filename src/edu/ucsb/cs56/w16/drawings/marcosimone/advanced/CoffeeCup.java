@@ -12,7 +12,7 @@ import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
    of a hard coded object, and end up with an object that can be
    drawn anywhere, with any width or height.   
       
-   @author Phill Conrad 
+   @author Marco Simone 
    @version for CS56, W16, UCSB
    
 */

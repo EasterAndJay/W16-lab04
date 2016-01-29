@@ -6,7 +6,7 @@ import java.awt.geom.Rectangle2D;
 /**
    A House
       
-   @author Phill Conrad 
+   @author Marco Simone 
    @version for CS56, W16, UCSB
    
 */
