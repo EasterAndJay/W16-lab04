@@ -7,7 +7,7 @@ import javax.swing.*;
     
     @author Head First Java, 2nd Edition p. 355
     @author P. Conrad (who only typed it in and added the Javadoc comments)
-    @author TODO: Add additional author here
+    @author Brenda Flores
     @version CS56, Spring 2013, UCSB
 */
 
@@ -20,7 +20,7 @@ public class SimpleGui1 {
     public static void main (String[] args) {
 	JFrame frame = new JFrame() ;
 	
-	JButton button = new JButton("Click me, caterpillar girl") ;
+	JButton button = new JButton("Click me, hurry! Before three!") ;
 	
 	java.awt.Color myColor = new java.awt.Color(10,15,213);   // R, G, B values.
 	button.setBackground(myColor);
