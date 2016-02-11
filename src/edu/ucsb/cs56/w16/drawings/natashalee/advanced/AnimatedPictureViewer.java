@@ -4,11 +4,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+import java.awt.geom.Rectangle2D;
+
+
 /**
  * A main class to view an animation
  *
- * @author Andrew Berls
- * @version for CS56, W14
+ * @author Natasha Lee
+ * @version for CS56, W16
  */
 
 
@@ -21,9 +24,13 @@ public class AnimatedPictureViewer {
 	Thread anim;
 	
 	private int x = 60;
-	private int y = 60;
+	private int y = 50;
 	
 	private int dx = 5;
+	
+	private Color color = new Color(0x5DADEC);
+	private Color oppcolor = Color.gray;
+
 	
 	public static void main (String[] args) {
 		new AnimatedPictureViewer().go();
@@ -66,9 +73,17 @@ public class AnimatedPictureViewer {
 			g2.fillRect(0,0,this.getWidth(), this.getHeight());
 			
 			// Draw the lollipop
-			g2.setColor(Color.YELLOW);
+			g2.setColor(color);
 			CandyWithStick test = new CandyWithStick(x, y, 150);
 			g2.draw(test);
+			
+			//draw top wall
+			g2.setColor(oppcolor);
+			Rectangle2D.Double wall = new Rectangle2D.Double(0,10,300,39);
+			g2.fillRect(0,10,300,39);
+			g2.draw(wall);
+			
+			
 		}
 	}
 	
@@ -78,20 +93,45 @@ public class AnimatedPictureViewer {
 				while (true) {
 					//make lollipop bounce down, then up/down a little, then back up
 					
-					if (y >= 105) { dx = -5; }
-					if (y <= 50) { dx = 5; }
-					if (y==100){
+					
+					if (y <= 50) {
+						dx = 5;
+						if (color== color.YELLOW){
+							color = new Color(0x5DADEC);
+							oppcolor = Color.gray;
+						}
+						else{
+							color = color.YELLOW;
+							oppcolor = Color.lightGray;
+						}
+					}
+					
+					
+					if (y==105){
 						for(int i = 0; i<6; i++){
 							y+=1;
 							panel.repaint();
-							Thread.sleep(50);
+							Thread.sleep(30);
 						}
 						for(int j = 0; j<6; j++){
 							y+=-1;
 							panel.repaint();
-							Thread.sleep(50);
+							Thread.sleep(30);
+						}
+						for(int i = 0; i<6; i++){
+							y+=1;
+							panel.repaint();
+							Thread.sleep(30);
+						}
+						for(int j = 0; j<6; j++){
+							y+=-1;
+							panel.repaint();
+							Thread.sleep(30);
 						}
 					}
+					
+					if (y >= 105) { dx = -5;}
+					
 					y += dx;
 					panel.repaint();
 					Thread.sleep(50);
