@@ -96,14 +96,18 @@ public class AnimatedPictureViewer {
 					
 					if (y <= 50) {
 						dx = 5;
-						if (color== color.YELLOW){
-							color = new Color(0x5DADEC);
+						if (oppcolor== color.lightGray){
 							oppcolor = Color.gray;
 						}
 						else{
-							color = color.YELLOW;
 							oppcolor = Color.lightGray;
 						}
+						
+						int r = (int) (Math.random() * 255);
+						int g = (int) (Math.random() * 255);
+						int b = (int) (Math.random() * 255);
+						
+ 						color = new Color(r,g,b);
 					}
 					
 					
