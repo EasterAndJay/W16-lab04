@@ -2,6 +2,8 @@ package edu.ucsb.cs56.w16.drawings.thienhoang.advanced;
 import java.awt.geom.GeneralPath;  
 import java.awt.Shape;
     
+import edu.ucsb.cs56.w16.drawings.utilities.ShapeTransforms;
+import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
 /**
    A HiSign (extends RoadSign class, implements Shape)
    
@@ -17,7 +19,7 @@ public class HiSign extends RoadSign implements Shape
        @param x x coord of the upper left corner of the Hi sign
        @param y y coord of the upper left corner of the Hi sign
        @param width width of the the Hi sign (mostly width of the rectagular sign)
-       @oaram height height of the Hi sign (including the pole and the sign)
+       @param height height of the Hi sign (including the pole and the sign)
      */
     public HiSign(double x, double y, double width, double height)
     {

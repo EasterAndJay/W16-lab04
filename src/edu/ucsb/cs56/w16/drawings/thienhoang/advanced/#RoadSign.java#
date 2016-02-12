@@ -3,10 +3,8 @@ import java.awt.geom.GeneralPath; // combinations of lines and curves
 import java.awt.Shape; // general class for shapes
 import java.awt.geom.Rectangle2D; //for the sign
     
-import edu.ucsb.cs56.w16.drawings.utilities.ShapeTransforms;
 import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
-
-/**
+import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;*
    A RoadSign (wrapper around a General Path, implements Shape)
 
    The RoadSign class corresponds to a road sign which consists of
