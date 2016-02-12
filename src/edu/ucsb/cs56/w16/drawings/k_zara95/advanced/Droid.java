@@ -21,16 +21,16 @@ public class Droid extends GeneralPathWrapper implements Shape
     /**
        Constructor
        
-       @param x x coord of center of top left circle
-       @param y y coord of center of top left circle 
-       @param diam_1 radius of the base circle
+       @param x, x coord of top left circle
+       @param y, y coord of top left circle 
+       @param diam_1 diameter of the base circle
     */
     public Droid(double x, double y, double diam_1)
     {
        //Base portion of the droid
 	     Ellipse2D.Double baseCircle = new Ellipse2D.Double (x, y, diam_1, diam_1);
        //Head of the droid
-       Ellipse2D.Double headCircle = new Ellipse2D.Double (x,y-diam_1/2, diam_1/2,diam_1/2);
+       Ellipse2D.Double headCircle = new Ellipse2D.Double (x+diam_1/5,y-diam_1/1.5, diam_1/1.5,diam_1/1.5);
 
       GeneralPath wholeDroid = this.get();
       wholeDroid.append(baseCircle, false);
