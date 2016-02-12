@@ -22,9 +22,9 @@ public class BB8 extends Droid implements Shape
     /**
        Constructor
        
-       @param x x coord of center of base circle
-       @param y y coord of center of base circle 
-       @param diam_1 radius of the base circle
+       @param x x coord of top left of base circle
+       @param y y coord of top left of base circle 
+       @param diam_1 diameter of the base circle
     */
     public BB8(double x, double y, double diam_1)
     {
@@ -32,19 +32,25 @@ public class BB8 extends Droid implements Shape
       GeneralPath gp = this.get();
 
       //Give BB8 his antenna
-      double antlen = (diam_1)/3;
-      Line2D.Double antenna = new Line2D.Double(x
-      , y - (diam_1)/2,x, y - diam_1/2 - antlen);
+      double antlen = diam_1/3;
+      Line2D.Double antenna = new Line2D.Double(x+diam_1/4,y-diam_1/2,
+        x+diam_1/4,y - diam_1/2 - antlen);
 
-      //Give BB8 his eye 
-      double len = (diam_1/4);
-      double height = (diam_1/36);
-      Ellipse2D.Double eye = new Ellipse2D.Double(x-height, 
-        y - diam_1*(3/8), height, len);
+      //Give BB8 its eye 
+      double height = diam_1/4;
+      double width  = diam_1/12;
+      Ellipse2D.Double eye = new Ellipse2D.Double(x+diam_1/1.5,y-diam_1/2,
+        width, height);
       
+      //Give BB8 its facial recetangle 
+      double rectHeight = diam_1/9;
+      double rectLength = diam_1/4;
+      Rectangle2D.Double rect = new Rectangle2D.Double(x+diam_1/3,y-diam_1/2.7,
+        rectLength, rectHeight);
       GeneralPath wholeDroid = this.get();
       wholeDroid.append(antenna,false);
       wholeDroid.append(eye, false); 
+      wholeDroid.append(rect, false);
       
     }
 }
