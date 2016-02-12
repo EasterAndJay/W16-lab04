@@ -46,10 +46,12 @@ public class AnimatedPictureViewer {
 
         public void mouseExited(MouseEvent e){        
           System.out.println("Mouse exited");
-          // Kill the animation thread
+          // Kill the animati on thread
           anim.interrupt();
           while (anim.isAlive()){}
-          anim = null;         
+          anim = null;
+	  x = 250;
+	  y = 250;
           panel.repaint();        
         }
       });
