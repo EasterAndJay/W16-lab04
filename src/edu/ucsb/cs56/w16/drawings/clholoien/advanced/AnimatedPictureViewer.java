@@ -16,15 +16,17 @@ import edu.ucsb.cs56.w16.drawings.utilities.ShapeTransforms;
 
 public class AnimatedPictureViewer {
     private int x = 100;
-    private int y = 100;
-    private int height = 100;
-    private int width = 70;
-    private int dx = 5;
+    private int y = 300;
+    private int objHeight = 100;
+    private int objWidth = 70;
+    private int dx = 10;
     private int tiltNum = 0;
+    private int frameWidth;
+    private int frameHeight;
 
     private DrawPanel panel = new DrawPanel();
     
-    private ManWithSmile man = new ManWithSmile(y, x, width, height);
+    private ManWithSmile man = new ManWithSmile(x, y, objWidth, objHeight);
     
     Thread anim;   
 
@@ -37,7 +39,7 @@ public class AnimatedPictureViewer {
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
       frame.getContentPane().add(panel);
-      frame.setSize(640,480);
+      frame.setSize(640,480);  //set size of frame.
       frame.setVisible(true);
       
       frame.getContentPane().addMouseListener(new MouseAdapter() {
@@ -51,7 +53,7 @@ public class AnimatedPictureViewer {
           System.out.println("Mouse exited");
           // Kill the animation thread
           anim.interrupt();
-          while (anim.isAlive()){}
+	   while (anim.isAlive()){}
           anim = null;         
           panel.repaint();        
         }
@@ -62,23 +64,35 @@ public class AnimatedPictureViewer {
     class DrawPanel extends JPanel {
        public void paintComponent(Graphics g) {
 	   double angle = 0.0;
-
+	   tiltNum++;
+	  
 	  Graphics2D g2 = (Graphics2D) g;
-	  tiltNum = (tiltNum++) % 4;
+	  
+
+	  //set the tilt variable, this will make it look like hes running.
+	  tiltNum = (tiltNum) % 4;
 	  if(tiltNum == 0)
-	      angle = Math.PI / 16;
+	      angle = Math.PI / 20.0;
 	  if((tiltNum == 1)||(tiltNum ==3))
 	      angle =0.0;
 	  if(tiltNum == 2)
-	      angle = -Math.PI/16;
-	    
-         // Clear the panel first
-          g2.setColor(Color.white);
-          g2.fillRect(0,0,this.getWidth(), this.getHeight());
+	      angle = -Math.PI/20.0;
 
-          // Draw the man
-          g2.setColor(Color.BLUE);
-          ManWithSmile man = new ManWithSmile(x, y, width,height);
+	  //when we resize the frame, set the instance variable equal to the changed size.
+	  frameWidth = this.getWidth();
+	  frameHeight = this.getHeight();
+	  
+	  //Paint the background black.
+          g2.setColor(Color.black);
+          g2.fillRect(0,0,frameWidth, frameHeight);
+	  //draw the message.
+	  g2.setColor(Color.white);
+	  g.drawString("Meet Al, the running man.", frameWidth/2 - 50, 30);
+
+
+          // Draw the man with new rotated psoition.
+          g2.setColor(Color.white);
+          ManWithSmile man = new ManWithSmile(x, y, objWidth,objHeight);
 	  Shape manRotated = ShapeTransforms.rotatedCopyOf(man, angle);
 
           g2.draw(manRotated);
@@ -91,8 +105,8 @@ public class AnimatedPictureViewer {
           while (true) {
             // Bounce off the walls
 
-            if (x >= 400) { dx = -5; }
-            if (x <= 50) { dx = 5; }
+	      if (x >= (frameWidth - objWidth - 10)){dx = -1*dx;}
+            if (x <= 10) { dx = dx*-1; }
             
             x += dx;                
             panel.repaint();

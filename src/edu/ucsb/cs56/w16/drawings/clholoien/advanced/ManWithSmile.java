@@ -9,6 +9,11 @@ import java.awt.geom.Arc2D;
 import edu.ucsb.cs56.w16.drawings.utilities.ShapeTransforms;
 import edu.ucsb.cs56.w16.drawings.utilities.GeneralPathWrapper;
 
+
+/**
+   This is an implementation of the Man class. 
+   It adds a smilie face to the man.
+ */
 public class ManWithSmile extends Man implements Shape{
     //Constructor
     public ManWithSmile(double x, double y, double width, double height){
