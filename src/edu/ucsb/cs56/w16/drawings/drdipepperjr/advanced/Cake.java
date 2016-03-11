@@ -28,7 +28,7 @@ public class Cake extends GeneralPathWrapper implements Shape
        @param y y coord of top-left corner of cake
        @param width width of the cake
        @param height height of the ellipse on top
-       @param sideHeight total heght of the cake
+       @param sideHeight heght of the sides of the cake
     */
     public Cake(double x, double y, double width, double height, double sideHeight)
     {
